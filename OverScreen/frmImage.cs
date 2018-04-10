@@ -34,6 +34,9 @@ namespace OverScreen
         private Rectangle sizeGripRectangle;
         private int tolerance = 10;
 
+        private Boolean isMaximized = false;
+        private Point originalPosition;
+
         protected override void WndProc(ref Message m)
         {
             switch (m.Msg)
@@ -52,9 +55,25 @@ namespace OverScreen
                     
                     break;
                 case WM_NCLBUTTONDBLCLK:
-                    this.Width = Screen.PrimaryScreen.WorkingArea.Width;
-                    this.Height = Screen.PrimaryScreen.WorkingArea.Height;
-                    this.Location = new Point(0, 0);
+                    if (!isMaximized)
+                    {
+                        originalPosition = new Point(this.Left, this.Top);
+                        this.Width = Screen.PrimaryScreen.WorkingArea.Width;
+                        this.Height = Screen.PrimaryScreen.WorkingArea.Height;
+                        this.Location = new Point(0, 0);
+                        
+                    }
+                    else
+                    {
+                        this.Width = this.BackgroundImage.Width;
+                        this.Height = this.BackgroundImage.Height;
+                        if(originalPosition != null)
+                        {
+                            this.Location = originalPosition;
+                        }
+                    }
+                    // Toggle boolean
+                    isMaximized = !isMaximized;
                     //Avoid System Maximize
                     m.Result = IntPtr.Zero;
                     break;
@@ -87,7 +106,6 @@ namespace OverScreen
         {
             InitializeComponent();
         }
-
 
         private void ctxClose_Click(object sender, EventArgs e)
         {

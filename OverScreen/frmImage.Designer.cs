@@ -39,12 +39,12 @@
             this.ctxMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ctxClose});
             this.ctxMenu.Name = "ctxMenu";
-            this.ctxMenu.Size = new System.Drawing.Size(181, 48);
+            this.ctxMenu.Size = new System.Drawing.Size(107, 26);
             // 
             // ctxClose
             // 
             this.ctxClose.Name = "ctxClose";
-            this.ctxClose.Size = new System.Drawing.Size(180, 22);
+            this.ctxClose.Size = new System.Drawing.Size(106, 22);
             this.ctxClose.Text = "Cerrar";
             this.ctxClose.Click += new System.EventHandler(this.ctxClose_Click);
             // 
@@ -53,6 +53,7 @@
             this.ClientSize = new System.Drawing.Size(284, 261);
             this.ContextMenuStrip = this.ctxMenu;
             this.Name = "frmImage";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.frmImage_Load);
             this.ctxMenu.ResumeLayout(false);
             this.ResumeLayout(false);

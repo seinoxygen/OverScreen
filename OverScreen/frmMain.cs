@@ -48,6 +48,12 @@ namespace OverScreen
             CaptureScreen();
         }
 
+        private void mniOpenCaptureFolder_Click(object sender, EventArgs e)
+        {
+            string fullPath = Path.Combine(path, "ScreenOverlay");
+            System.Diagnostics.Process.Start(fullPath);
+        }
+
         private void mniAbout_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("https://github.com/seinoxygen/OverScreen");
@@ -182,12 +188,6 @@ namespace OverScreen
             {
                 Console.WriteLine(s.Message);
             }            
-        }
-
-        private void mniOpenCaptureFolder_Click(object sender, EventArgs e)
-        {
-            string fullPath = Path.Combine(path, "ScreenOverlay");
-            System.Diagnostics.Process.Start(fullPath);
         }
     }
 }

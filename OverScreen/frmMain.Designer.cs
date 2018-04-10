@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.opnFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.btnOpenImage = new System.Windows.Forms.Button();
             this.trbOpacity = new System.Windows.Forms.TrackBar();
@@ -41,12 +42,12 @@
             this.mniClose = new System.Windows.Forms.ToolStripMenuItem();
             this.mniTools = new System.Windows.Forms.ToolStripMenuItem();
             this.mniScreenCapture = new System.Windows.Forms.ToolStripMenuItem();
+            this.mniOpenCaptureFolder = new System.Windows.Forms.ToolStripMenuItem();
             this.mniHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.mniUpdates = new System.Windows.Forms.ToolStripMenuItem();
             this.mniAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.grpRotation = new System.Windows.Forms.GroupBox();
             this.trkRotation = new System.Windows.Forms.TrackBar();
-            this.mniOpenCaptureFolder = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.trbOpacity)).BeginInit();
             this.grpImage.SuspendLayout();
             this.grpOpacity.SuspendLayout();
@@ -55,177 +56,149 @@
             ((System.ComponentModel.ISupportInitialize)(this.trkRotation)).BeginInit();
             this.SuspendLayout();
             // 
+            // opnFileDialog
+            // 
+            resources.ApplyResources(this.opnFileDialog, "opnFileDialog");
+            // 
             // btnOpenImage
             // 
-            this.btnOpenImage.Location = new System.Drawing.Point(229, 19);
+            resources.ApplyResources(this.btnOpenImage, "btnOpenImage");
             this.btnOpenImage.Name = "btnOpenImage";
-            this.btnOpenImage.Size = new System.Drawing.Size(75, 23);
-            this.btnOpenImage.TabIndex = 0;
-            this.btnOpenImage.Text = "Abrir";
             this.btnOpenImage.UseVisualStyleBackColor = true;
             this.btnOpenImage.Click += new System.EventHandler(this.btnOpenImage_Click);
             // 
             // trbOpacity
             // 
+            resources.ApplyResources(this.trbOpacity, "trbOpacity");
             this.trbOpacity.LargeChange = 10;
-            this.trbOpacity.Location = new System.Drawing.Point(6, 19);
             this.trbOpacity.Maximum = 100;
             this.trbOpacity.Name = "trbOpacity";
-            this.trbOpacity.Size = new System.Drawing.Size(298, 45);
-            this.trbOpacity.TabIndex = 1;
             this.trbOpacity.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
             this.trbOpacity.Value = 75;
             this.trbOpacity.Scroll += new System.EventHandler(this.trackBar1_Scroll);
             // 
             // txtFile
             // 
-            this.txtFile.Location = new System.Drawing.Point(6, 21);
+            resources.ApplyResources(this.txtFile, "txtFile");
             this.txtFile.Name = "txtFile";
-            this.txtFile.Size = new System.Drawing.Size(217, 20);
-            this.txtFile.TabIndex = 2;
             // 
             // grpImage
             // 
+            resources.ApplyResources(this.grpImage, "grpImage");
             this.grpImage.Controls.Add(this.btnOpenImage);
             this.grpImage.Controls.Add(this.txtFile);
-            this.grpImage.Location = new System.Drawing.Point(12, 27);
             this.grpImage.Name = "grpImage";
-            this.grpImage.Size = new System.Drawing.Size(310, 55);
-            this.grpImage.TabIndex = 3;
             this.grpImage.TabStop = false;
-            this.grpImage.Text = "Imagen";
             // 
             // grpOpacity
             // 
+            resources.ApplyResources(this.grpOpacity, "grpOpacity");
             this.grpOpacity.Controls.Add(this.trbOpacity);
-            this.grpOpacity.Location = new System.Drawing.Point(12, 88);
             this.grpOpacity.Name = "grpOpacity";
-            this.grpOpacity.Size = new System.Drawing.Size(310, 66);
-            this.grpOpacity.TabIndex = 4;
             this.grpOpacity.TabStop = false;
-            this.grpOpacity.Text = "Opacidad";
             // 
             // mnuMain
             // 
+            resources.ApplyResources(this.mnuMain, "mnuMain");
             this.mnuMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mniFile,
             this.mniTools,
             this.mniHelp});
-            this.mnuMain.Location = new System.Drawing.Point(0, 0);
             this.mnuMain.Name = "mnuMain";
-            this.mnuMain.Size = new System.Drawing.Size(334, 24);
-            this.mnuMain.TabIndex = 5;
-            this.mnuMain.Text = "menuStrip1";
             // 
             // mniFile
             // 
+            resources.ApplyResources(this.mniFile, "mniFile");
             this.mniFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mniOpen,
             this.sepOne,
             this.mniClose});
             this.mniFile.Name = "mniFile";
-            this.mniFile.Size = new System.Drawing.Size(60, 20);
-            this.mniFile.Text = "Archivo";
             // 
             // mniOpen
             // 
+            resources.ApplyResources(this.mniOpen, "mniOpen");
             this.mniOpen.Name = "mniOpen";
-            this.mniOpen.Size = new System.Drawing.Size(148, 22);
-            this.mniOpen.Text = "&Abrir";
             this.mniOpen.Click += new System.EventHandler(this.mniOpen_Click);
             // 
             // sepOne
             // 
+            resources.ApplyResources(this.sepOne, "sepOne");
             this.sepOne.Name = "sepOne";
-            this.sepOne.Size = new System.Drawing.Size(145, 6);
             // 
             // mniClose
             // 
+            resources.ApplyResources(this.mniClose, "mniClose");
             this.mniClose.Name = "mniClose";
-            this.mniClose.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            this.mniClose.Size = new System.Drawing.Size(148, 22);
-            this.mniClose.Text = "Cerrar";
             this.mniClose.Click += new System.EventHandler(this.mniClose_Click);
             // 
             // mniTools
             // 
+            resources.ApplyResources(this.mniTools, "mniTools");
             this.mniTools.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mniScreenCapture,
             this.mniOpenCaptureFolder});
             this.mniTools.Name = "mniTools";
-            this.mniTools.Size = new System.Drawing.Size(90, 20);
-            this.mniTools.Text = "Herramientas";
             // 
             // mniScreenCapture
             // 
+            resources.ApplyResources(this.mniScreenCapture, "mniScreenCapture");
             this.mniScreenCapture.Name = "mniScreenCapture";
-            this.mniScreenCapture.Size = new System.Drawing.Size(180, 22);
-            this.mniScreenCapture.Text = "Capturar Pantalla";
             this.mniScreenCapture.Click += new System.EventHandler(this.mniScreenCapture_Click);
+            // 
+            // mniOpenCaptureFolder
+            // 
+            resources.ApplyResources(this.mniOpenCaptureFolder, "mniOpenCaptureFolder");
+            this.mniOpenCaptureFolder.Name = "mniOpenCaptureFolder";
+            this.mniOpenCaptureFolder.Click += new System.EventHandler(this.mniOpenCaptureFolder_Click);
             // 
             // mniHelp
             // 
+            resources.ApplyResources(this.mniHelp, "mniHelp");
             this.mniHelp.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mniUpdates,
             this.mniAbout});
             this.mniHelp.Name = "mniHelp";
-            this.mniHelp.Size = new System.Drawing.Size(53, 20);
-            this.mniHelp.Text = "Ayuda";
             // 
             // mniUpdates
             // 
+            resources.ApplyResources(this.mniUpdates, "mniUpdates");
             this.mniUpdates.Name = "mniUpdates";
-            this.mniUpdates.Size = new System.Drawing.Size(194, 22);
-            this.mniUpdates.Text = "Buscar Actualizaciones";
             this.mniUpdates.Click += new System.EventHandler(this.mniUpdates_Click);
             // 
             // mniAbout
             // 
+            resources.ApplyResources(this.mniAbout, "mniAbout");
             this.mniAbout.Name = "mniAbout";
-            this.mniAbout.Size = new System.Drawing.Size(194, 22);
-            this.mniAbout.Text = "Acerca De OverScreen";
             this.mniAbout.Click += new System.EventHandler(this.mniAbout_Click);
             // 
             // grpRotation
             // 
+            resources.ApplyResources(this.grpRotation, "grpRotation");
             this.grpRotation.Controls.Add(this.trkRotation);
-            this.grpRotation.Location = new System.Drawing.Point(12, 160);
             this.grpRotation.Name = "grpRotation";
-            this.grpRotation.Size = new System.Drawing.Size(310, 66);
-            this.grpRotation.TabIndex = 6;
             this.grpRotation.TabStop = false;
-            this.grpRotation.Text = "Rotación";
             // 
             // trkRotation
             // 
-            this.trkRotation.Location = new System.Drawing.Point(6, 19);
+            resources.ApplyResources(this.trkRotation, "trkRotation");
             this.trkRotation.Maximum = 36;
             this.trkRotation.Name = "trkRotation";
-            this.trkRotation.Size = new System.Drawing.Size(298, 45);
-            this.trkRotation.TabIndex = 0;
             this.trkRotation.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
             this.trkRotation.Scroll += new System.EventHandler(this.trkRotation_Scroll);
             // 
-            // mniOpenCaptureFolder
-            // 
-            this.mniOpenCaptureFolder.Name = "mniOpenCaptureFolder";
-            this.mniOpenCaptureFolder.Size = new System.Drawing.Size(180, 22);
-            this.mniOpenCaptureFolder.Text = "Ver Capturas";
-            this.mniOpenCaptureFolder.Click += new System.EventHandler(this.mniOpenCaptureFolder_Click);
-            // 
             // frmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(334, 243);
             this.Controls.Add(this.grpRotation);
             this.Controls.Add(this.grpOpacity);
             this.Controls.Add(this.grpImage);
             this.Controls.Add(this.mnuMain);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.mnuMain;
+            this.MaximizeBox = false;
             this.Name = "frmMain";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "OverScreen";
             this.TopMost = true;
             ((System.ComponentModel.ISupportInitialize)(this.trbOpacity)).EndInit();
             this.grpImage.ResumeLayout(false);
