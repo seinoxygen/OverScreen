@@ -23,9 +23,41 @@ namespace OverScreen
             InitializeComponent();
 
             overScreen = new OverScreen();
-        }        
+        }
+
+        #region "TOP MENU"
+        private void mniOpen_Click(object sender, EventArgs e)
+        {
+            LoadFile();
+        }
+
+        private void mniClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void mniAbout_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/seinoxygen/OverScreen");
+        }
+
+        private void mniUpdates_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/seinoxygen/OverScreen/releases");
+        }
+        #endregion
 
         private void btnOpenImage_Click(object sender, EventArgs e)
+        {
+            LoadFile();
+        }
+
+        private void trackBar1_Scroll(object sender, EventArgs e)
+        {
+            frmImage.Opacity = trbOpacity.Value * 000.01d;
+        }      
+
+        private void LoadFile()
         {
             OpenFileDialog fileBrowser = new OpenFileDialog();
             fileBrowser.Filter = "Imagen|*.png; *.jpg; *.bmp";
@@ -35,7 +67,7 @@ namespace OverScreen
                 txtFile.Text = fileBrowser.FileName;
 
                 Image bitmap = Bitmap.FromStream(image);
-                
+
                 frmImage = new frmImage();
                 frmImage.BackgroundImage = Bitmap.FromStream(image);
                 frmImage.Width = bitmap.Width;
@@ -45,9 +77,5 @@ namespace OverScreen
             }
         }
 
-        private void trackBar1_Scroll(object sender, EventArgs e)
-        {
-            frmImage.Opacity = trbOpacity.Value * 000.01d;
-        }
     }
 }
