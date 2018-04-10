@@ -32,6 +32,7 @@ namespace OverScreen
         private const int HTTOPRIGHT = 14;
 
         private Rectangle sizeGripRectangle;
+        private int tolerance = 10;
 
         protected override void WndProc(ref Message m)
         {
@@ -51,7 +52,10 @@ namespace OverScreen
                     
                     break;
                 case WM_NCLBUTTONDBLCLK:
-                    //Avoid Maximize
+                    this.Width = Screen.PrimaryScreen.WorkingArea.Width;
+                    this.Height = Screen.PrimaryScreen.WorkingArea.Height;
+                    this.Location = new Point(0, 0);
+                    //Avoid System Maximize
                     m.Result = IntPtr.Zero;
                     break;
                 case WM_NCRBUTTONDOWN:
