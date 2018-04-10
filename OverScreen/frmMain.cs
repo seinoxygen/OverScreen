@@ -136,18 +136,22 @@ namespace OverScreen
 
             try
             {
+                string fullPath = Path.Combine(path, "ScreenOverlay");
+
                 // Get access to documents folder.
-                FileIOPermission ioPerm = new FileIOPermission(FileIOPermissionAccess.Read, path);
+                FileIOPermission ioPerm = new FileIOPermission(FileIOPermissionAccess.Read, fullPath);
                 ioPerm.Demand();
 
-                string filePath = Path.Combine(path, filename);
+                Directory.CreateDirectory(fullPath);
+
+                string filePath = Path.Combine(fullPath, filename);
 
                 // Get permission to write the screenshot file.
                 FileIOPermission writeAccess = new FileIOPermission(FileIOPermissionAccess.AllAccess, filePath);
                 writeAccess.Demand();
 
                 // Debug.
-                Console.WriteLine("Read access is permitted: {0} => {1}", path, SecurityManager.IsGranted(ioPerm));
+                Console.WriteLine("Read access is permitted: {0} => {1}", fullPath, SecurityManager.IsGranted(ioPerm));
                 Console.WriteLine("Write backup file is permitted: {0} => {1}", filePath, SecurityManager.IsGranted(writeAccess));
 
                 // Minimize control window before take the screenshot.
@@ -179,6 +183,11 @@ namespace OverScreen
                 Console.WriteLine(s.Message);
             }            
         }
-        
+
+        private void mniOpenCaptureFolder_Click(object sender, EventArgs e)
+        {
+            string fullPath = Path.Combine(path, "ScreenOverlay");
+            System.Diagnostics.Process.Start(fullPath);
+        }
     }
 }

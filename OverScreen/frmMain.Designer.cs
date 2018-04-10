@@ -39,13 +39,14 @@
             this.mniOpen = new System.Windows.Forms.ToolStripMenuItem();
             this.sepOne = new System.Windows.Forms.ToolStripSeparator();
             this.mniClose = new System.Windows.Forms.ToolStripMenuItem();
+            this.mniTools = new System.Windows.Forms.ToolStripMenuItem();
+            this.mniScreenCapture = new System.Windows.Forms.ToolStripMenuItem();
             this.mniHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.mniUpdates = new System.Windows.Forms.ToolStripMenuItem();
             this.mniAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.grpRotation = new System.Windows.Forms.GroupBox();
             this.trkRotation = new System.Windows.Forms.TrackBar();
-            this.mniTools = new System.Windows.Forms.ToolStripMenuItem();
-            this.mniScreenCapture = new System.Windows.Forms.ToolStripMenuItem();
+            this.mniOpenCaptureFolder = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.trbOpacity)).BeginInit();
             this.grpImage.SuspendLayout();
             this.grpOpacity.SuspendLayout();
@@ -129,22 +130,38 @@
             // mniOpen
             // 
             this.mniOpen.Name = "mniOpen";
-            this.mniOpen.Size = new System.Drawing.Size(180, 22);
+            this.mniOpen.Size = new System.Drawing.Size(148, 22);
             this.mniOpen.Text = "&Abrir";
             this.mniOpen.Click += new System.EventHandler(this.mniOpen_Click);
             // 
             // sepOne
             // 
             this.sepOne.Name = "sepOne";
-            this.sepOne.Size = new System.Drawing.Size(177, 6);
+            this.sepOne.Size = new System.Drawing.Size(145, 6);
             // 
             // mniClose
             // 
             this.mniClose.Name = "mniClose";
             this.mniClose.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            this.mniClose.Size = new System.Drawing.Size(180, 22);
+            this.mniClose.Size = new System.Drawing.Size(148, 22);
             this.mniClose.Text = "Cerrar";
             this.mniClose.Click += new System.EventHandler(this.mniClose_Click);
+            // 
+            // mniTools
+            // 
+            this.mniTools.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mniScreenCapture,
+            this.mniOpenCaptureFolder});
+            this.mniTools.Name = "mniTools";
+            this.mniTools.Size = new System.Drawing.Size(90, 20);
+            this.mniTools.Text = "Herramientas";
+            // 
+            // mniScreenCapture
+            // 
+            this.mniScreenCapture.Name = "mniScreenCapture";
+            this.mniScreenCapture.Size = new System.Drawing.Size(180, 22);
+            this.mniScreenCapture.Text = "Capturar Pantalla";
+            this.mniScreenCapture.Click += new System.EventHandler(this.mniScreenCapture_Click);
             // 
             // mniHelp
             // 
@@ -189,20 +206,12 @@
             this.trkRotation.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
             this.trkRotation.Scroll += new System.EventHandler(this.trkRotation_Scroll);
             // 
-            // mniTools
+            // mniOpenCaptureFolder
             // 
-            this.mniTools.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mniScreenCapture});
-            this.mniTools.Name = "mniTools";
-            this.mniTools.Size = new System.Drawing.Size(90, 20);
-            this.mniTools.Text = "Herramientas";
-            // 
-            // mniScreenCapture
-            // 
-            this.mniScreenCapture.Name = "mniScreenCapture";
-            this.mniScreenCapture.Size = new System.Drawing.Size(180, 22);
-            this.mniScreenCapture.Text = "Capturar Pantalla";
-            this.mniScreenCapture.Click += new System.EventHandler(this.mniScreenCapture_Click);
+            this.mniOpenCaptureFolder.Name = "mniOpenCaptureFolder";
+            this.mniOpenCaptureFolder.Size = new System.Drawing.Size(180, 22);
+            this.mniOpenCaptureFolder.Text = "Ver Capturas";
+            this.mniOpenCaptureFolder.Click += new System.EventHandler(this.mniOpenCaptureFolder_Click);
             // 
             // frmMain
             // 
@@ -253,6 +262,7 @@
         private System.Windows.Forms.TrackBar trkRotation;
         private System.Windows.Forms.ToolStripMenuItem mniTools;
         private System.Windows.Forms.ToolStripMenuItem mniScreenCapture;
+        private System.Windows.Forms.ToolStripMenuItem mniOpenCaptureFolder;
     }
 }
 
