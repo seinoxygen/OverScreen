@@ -14,26 +14,23 @@ namespace OverScreen
 
         private const int WM_NCHITTEST = 0x84;
         private const int WM_MOUSEMOVE = 0x0200;
+        // Right click
+        private const int WM_NCRBUTTONDOWN = 0xA4;
+        // Double click
+        private const int WM_NCLBUTTONDBLCLK = 0x00A3;
 
         private const int HT_CLIENT = 0x1;
-        private const int HT_CAPTION = 0x2;
-        private const int WM_CONTEXTMENU = 0x007B;
+        private const int HT_CAPTION = 0x2;        
 
-        private const int WM_NCRBUTTONDOWN = 0xa4;
+        private const int HTLEFT = 10;
+        private const int HTRIGHT = 11;
+        private const int HTBOTTOMRIGHT = 17;
+        private const int HTBOTTOM = 15;
+        private const int HTBOTTOMLEFT = 16;
+        private const int HTTOP = 12;
+        private const int HTTOPLEFT = 13;
+        private const int HTTOPRIGHT = 14;
 
-        const UInt32 HTLEFT = 10;
-        const UInt32 HTRIGHT = 11;
-        const UInt32 HTBOTTOMRIGHT = 17;
-        const UInt32 HTBOTTOM = 15;
-        const UInt32 HTBOTTOMLEFT = 16;
-        const UInt32 HTTOP = 12;
-        const UInt32 HTTOPLEFT = 13;
-        const UInt32 HTTOPRIGHT = 14;
-
-        const int RESIZE_HANDLE_SIZE = 10;
-
-
-        private int tolerance = 16;
         private Rectangle sizeGripRectangle;
 
         protected override void WndProc(ref Message m)
@@ -50,9 +47,12 @@ namespace OverScreen
                     else
                     {
                         m.Result = (IntPtr)(HT_CAPTION);
-
                     }
                     
+                    break;
+                case WM_NCLBUTTONDBLCLK:
+                    //Avoid Maximize
+                    m.Result = IntPtr.Zero;
                     break;
                 case WM_NCRBUTTONDOWN:
                     var pos = new Point(m.LParam.ToInt32());
