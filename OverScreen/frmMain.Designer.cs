@@ -44,6 +44,8 @@
             this.mniAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.grpRotation = new System.Windows.Forms.GroupBox();
             this.trkRotation = new System.Windows.Forms.TrackBar();
+            this.mniTools = new System.Windows.Forms.ToolStripMenuItem();
+            this.mniScreenCapture = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.trbOpacity)).BeginInit();
             this.grpImage.SuspendLayout();
             this.grpOpacity.SuspendLayout();
@@ -106,6 +108,7 @@
             // 
             this.mnuMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mniFile,
+            this.mniTools,
             this.mniHelp});
             this.mnuMain.Location = new System.Drawing.Point(0, 0);
             this.mnuMain.Name = "mnuMain";
@@ -126,20 +129,20 @@
             // mniOpen
             // 
             this.mniOpen.Name = "mniOpen";
-            this.mniOpen.Size = new System.Drawing.Size(148, 22);
+            this.mniOpen.Size = new System.Drawing.Size(180, 22);
             this.mniOpen.Text = "&Abrir";
             this.mniOpen.Click += new System.EventHandler(this.mniOpen_Click);
             // 
             // sepOne
             // 
             this.sepOne.Name = "sepOne";
-            this.sepOne.Size = new System.Drawing.Size(145, 6);
+            this.sepOne.Size = new System.Drawing.Size(177, 6);
             // 
             // mniClose
             // 
             this.mniClose.Name = "mniClose";
             this.mniClose.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            this.mniClose.Size = new System.Drawing.Size(148, 22);
+            this.mniClose.Size = new System.Drawing.Size(180, 22);
             this.mniClose.Text = "Cerrar";
             this.mniClose.Click += new System.EventHandler(this.mniClose_Click);
             // 
@@ -185,6 +188,21 @@
             this.trkRotation.TabIndex = 0;
             this.trkRotation.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
             this.trkRotation.Scroll += new System.EventHandler(this.trkRotation_Scroll);
+            // 
+            // mniTools
+            // 
+            this.mniTools.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mniScreenCapture});
+            this.mniTools.Name = "mniTools";
+            this.mniTools.Size = new System.Drawing.Size(90, 20);
+            this.mniTools.Text = "Herramientas";
+            // 
+            // mniScreenCapture
+            // 
+            this.mniScreenCapture.Name = "mniScreenCapture";
+            this.mniScreenCapture.Size = new System.Drawing.Size(180, 22);
+            this.mniScreenCapture.Text = "Capturar Pantalla";
+            this.mniScreenCapture.Click += new System.EventHandler(this.mniScreenCapture_Click);
             // 
             // frmMain
             // 
@@ -233,6 +251,8 @@
         private System.Windows.Forms.ToolStripMenuItem mniUpdates;
         private System.Windows.Forms.GroupBox grpRotation;
         private System.Windows.Forms.TrackBar trkRotation;
+        private System.Windows.Forms.ToolStripMenuItem mniTools;
+        private System.Windows.Forms.ToolStripMenuItem mniScreenCapture;
     }
 }
 
