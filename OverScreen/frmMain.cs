@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -12,7 +13,7 @@ namespace OverScreen
 {
     public partial class frmMain : Form
     {
-        public Stream image;
+        public Image image;
 
         private OverScreen overScreen;
 
@@ -63,19 +64,54 @@ namespace OverScreen
             fileBrowser.Filter = "Imagen|*.png; *.jpg; *.bmp";
             if (fileBrowser.ShowDialog() == DialogResult.OK)
             {
-                image = fileBrowser.OpenFile();
+                Stream sImage = fileBrowser.OpenFile();
                 txtFile.Text = fileBrowser.FileName;
 
-                Image bitmap = Bitmap.FromStream(image);
+                image = Bitmap.FromStream(sImage);
 
                 frmImage = new frmImage();
-                frmImage.BackgroundImage = Bitmap.FromStream(image);
-                frmImage.Width = bitmap.Width;
-                frmImage.Height = bitmap.Height;
+                frmImage.BackgroundImage = image;
+                frmImage.Width = image.Width;
+                frmImage.Height = image.Height;
 
                 frmImage.Show();
             }
         }
 
+        private Bitmap RotateImage(Image img, int rotationAngle)
+        {
+
+            // create an empty Bitmap image
+            Bitmap bmp = new Bitmap(img.Width, img.Height);
+
+            //turn the Bitmap into a Graphics object
+            Graphics gfx = Graphics.FromImage(bmp);
+
+            //now we set the rotation point to the center of our image
+            gfx.TranslateTransform((float)bmp.Width / 2, (float)bmp.Height / 2);
+
+            //now rotate the image
+            gfx.RotateTransform(rotationAngle);
+
+            gfx.TranslateTransform(-(float)bmp.Width / 2, -(float)bmp.Height / 2);
+
+            //set the InterpolationMode to HighQualityBicubic so to ensure a high
+            //quality image once it is transformed to the specified size
+            gfx.InterpolationMode = InterpolationMode.HighQualityBicubic;
+
+            //now draw our new image onto the graphics object
+            gfx.DrawImage(img, new Point(0, 0));
+
+            //dispose of our Graphics object
+            gfx.Dispose();
+
+            //return the image
+            return bmp;
+        }
+
+        private void trkRotation_Scroll(object sender, EventArgs e)
+        {
+            frmImage.BackgroundImage = RotateImage(image, trkRotation.Value * 10);
+        }
     }
 }
